@@ -1,5 +1,6 @@
 package pl.merito.demo;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -60,6 +61,12 @@ public class Book {
     }
 
     @ManyToMany
+    @JoinTable(
+            name = "book_actors",
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "actor_id")
+    )
+    @JsonBackReference
     private List<Actors> actors;
 
     public List<Actors> getActors() {

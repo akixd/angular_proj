@@ -7,7 +7,11 @@
       <p class="card-text"><strong>Autor:</strong> {{ book.author }}</p>
       <p class="card-text"><strong>Opis:</strong> {{ book.description }}</p>
       <p class="card-text"><strong>Kategoria:</strong> {{ book.category?.name}}</p>
-      <p class="card-text"><strong>Aktorzy:</strong> {{ book.actors }}</p>
+      <p class="card-text"><strong>Aktorzy:</strong>
+        <span *ngFor="let actor of book.actors; let last = last">
+          {{ actor.name }} {{ actor.surname }}<span *ngIf="!last">, </span>
+        </span>
+      </p>
 
 
     </div>

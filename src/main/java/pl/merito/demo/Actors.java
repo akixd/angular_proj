@@ -1,6 +1,6 @@
 package pl.merito.demo;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,7 +12,7 @@ public class Actors {
     private String surname;
 
     @ManyToMany(mappedBy = "actors")
-    @JsonIgnore
+    @JsonBackReference
     private List<Book> books;
 
     public Long getId() {

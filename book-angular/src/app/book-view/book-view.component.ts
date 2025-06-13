@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {NgIf} from '@angular/common';
+import {NgForOf, NgIf} from '@angular/common';
 import {Book} from '../book';
 import {ApiService} from '../api.service';
 import {ActivatedRoute, RouterLink} from '@angular/router';
@@ -8,7 +8,8 @@ import {ActivatedRoute, RouterLink} from '@angular/router';
   selector: 'app-book-view',
   imports: [
     NgIf,
-    RouterLink
+    RouterLink,
+    NgForOf
   ],
   templateUrl: './book-view.component.html',
   styleUrl: './book-view.component.css'
