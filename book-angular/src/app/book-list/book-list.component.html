@@ -1,0 +1,29 @@
+<h1>Lista Filmów</h1>
+
+<table id="books-table" class="table">
+  <caption>Lista dostępnych filmów</caption>
+  <a routerLink="/book/add" class="btn btn-primary mb-3">Dodaj nowy film</a>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Tytuł</th>
+      <th>Opis</th>
+      <th>Kategoria</th>
+      <th>Aktorzy</th>
+      <th>Akcje</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of books">
+      <td>{{ book.id }}</td>
+      <td>{{ book.title }}</td>
+      <td>{{book.description}}</td>
+      <td>{{book.category}}</td>
+      <td>{{book.actors}}</td>
+      <td>
+        <a [routerLink]="['/book/show', book.id]" class="btn btn-info">Zobacz</a> &nbsp;
+        <a [routerLink]="['/books/edit', book.id]" class="btn btn-warning">Edytuj</a> &nbsp;
+        <button (click)="deleteBook(book.id)" class="btn btn-danger">Usuń</button>
+    </tr>
+  </tbody>
+</table>

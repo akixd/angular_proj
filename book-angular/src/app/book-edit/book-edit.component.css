@@ -1,0 +1,149 @@
+/* Główny kontener */
+.book-edit-container {
+  max-width: 720px;
+  margin: 4rem auto; /* więcej marginesu góra/dół dla lepszego wyśrodkowania pionowego */
+  padding: 3rem 2.5rem;
+  background-color: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.08);
+  border: 1px solid #e9ecef;
+
+  /* wyśrodkowanie poziome i pionowe (flex na body lub rodzicu jest lepszy, ale na szybko: */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Nagłówek */
+.edit-header {
+  color: #212529;
+  font-weight: 700;
+  font-size: 2.25rem; /* powiększone */
+  margin-bottom: 2.5rem;
+  border-bottom: 3px solid #0d6efd;
+  padding-bottom: 0.75rem;
+  letter-spacing: 0.04em;
+  text-align: center; /* wyśrodkowanie nagłówka */
+  width: 100%;
+}
+
+/* Formularz */
+.edit-form {
+  background-color: #fefefe;
+  padding: 2.5rem 2.5rem 3rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(13, 110, 253, 0.1);
+  width: 100%; /* rozszerzamy do pełnej szerokości kontenera */
+  max-width: 600px;
+}
+
+/* Etykiety formularza */
+.form-label {
+  font-weight: 700;
+  color: #495057;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.015em;
+  font-size: 1.1rem;
+}
+
+/* Pola input */
+.form-control {
+  border-radius: 0.5rem;
+  border: 1.5px solid #ced4da;
+  padding: 0.75rem 1rem;
+  font-size: 1.1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: none;
+}
+
+.form-control:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 8px 3px rgba(13, 110, 253, 0.3);
+  outline: none;
+}
+
+/* Textarea */
+textarea.form-control {
+  min-height: 160px;
+  resize: vertical;
+  font-size: 1.1rem;
+}
+
+/* Przyciski */
+.btn-primary {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  padding: 0.75rem 2rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 0.6rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(13, 110, 253, 0.4);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
+  transform: translateY(-3px);
+  box-shadow: 0 0.35rem 0.7rem rgba(11, 94, 215, 0.6);
+}
+
+.btn-outline-secondary {
+  padding: 0.65rem 1.8rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 0.6rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-outline-secondary:hover,
+.btn-outline-secondary:focus {
+  color: #0d6efd;
+  transform: translateY(-3px);
+}
+
+/* Komunikaty błędów */
+.error-message,
+.invalid-feedback {
+  color: #dc3545;
+  font-size: 1rem;
+  margin-top: 0.4rem;
+  font-weight: 600;
+}
+
+/* Walidacja */
+.is-invalid {
+  border-color: #dc3545 !important;
+}
+
+.is-invalid:focus {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 8px 3px rgba(220, 53, 69, 0.4) !important;
+  outline: none;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+  .book-edit-container {
+    padding: 2rem 1.5rem;
+    margin: 3rem auto;
+  }
+
+  .edit-form {
+    padding: 2rem 1.5rem 2.5rem;
+  }
+
+  .edit-header {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .form-label,
+  .form-control,
+  .btn-primary,
+  .btn-outline-secondary {
+    font-size: 1rem;
+  }
+}

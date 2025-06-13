@@ -1,0 +1,17 @@
+<div class="container mt-4">
+  <h1>Szczegóły filmu</h1>
+
+  <div class="card" *ngIf="book">
+    <div class="card-body">
+      <h3 class="card-title"><strong>Tytuł:</strong> {{ book.title }}</h3>
+      <p class="card-text"><strong>Autor:</strong> {{ book.author }}</p>
+      <p class="card-text"><strong>Opis:</strong> {{ book.description }}</p>
+      <p class="card-text"><strong>Kategoria:</strong> {{ book.category?.name}}</p>
+      <p class="card-text"><strong>Aktorzy:</strong> {{ book.actors }}</p>
+
+
+    </div>
+  </div>
+
+  <a routerLink="/books" class="btn btn-primary mt-3">Powrót do listy</a>
+</div>

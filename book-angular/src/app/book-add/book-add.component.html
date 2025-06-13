@@ -1,0 +1,88 @@
+<h2>Dodawanie nowego filmu</h2>
+
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="title">Tytuł</label>
+    <input type="text" id="title" class="form-control" formControlName="title">
+    <div *ngIf="submitted && f['title'].errors" class="text-red-500 text-sm mt-1">
+      <div *ngIf="f['title'].errors['required']">Tytuł jest wymagany</div>
+      <div *ngIf="f['title'].errors['minlength']">Tytuł musi mieć co najmniej 2 znaki</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="author">Reżyser</label>
+    <input type="text" id="author" class="form-control" formControlName="author">
+  </div>
+  <div class="form-group">
+    <label for="description">Opis</label>
+    <textarea id="description" class="form-control" formControlName="description"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="category">Kategoria</label>
+    <select id="category" class="form-control" formControlName="category">
+      <option value="">Wybierz kategorię</option>
+      <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="actors">Aktorzy</label>
+
+    <select
+      id="actors"
+      multiple
+      class="form-control"
+      [formControl]="actorsControl"
+    >
+      <option *ngFor="let actor of actors" [ngValue]="actor">
+        {{ actor.name }} {{ actor.surname }}
+      </option>
+    </select>
+
+    <!-- Przycisk do dodania nowego aktora -->
+    <button type="button" class="btn btn-secondary mt-2" (click)="showAddActor = true">
+      ➕ Dodaj nowego aktora
+    </button>
+  </div>
+
+  <div *ngIf="showAddActor" class="border rounded p-3 mt-2">
+    <h5>Dodaj aktora</h5>
+
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control mb-2"
+        placeholder="Imię"
+        [(ngModel)]="newActor.name"
+        [ngModelOptions]="{standalone: true}"
+        name="newActorName"
+        required
+      >
+      <input
+        type="text"
+        class="form-control mb-2"
+        placeholder="Nazwisko"
+        [(ngModel)]="newActor.surname"
+        [ngModelOptions]="{standalone: true}"
+        name="newActorSurname"
+        required
+      >
+      <button type="button" class="btn btn-success" (click)="addNewActor()">Dodaj aktora</button>
+      <button type="button" class="btn btn-link text-danger" (click)="showAddActor = false">Anuluj</button>
+    </div>
+  </div>
+
+
+  <button type="submit" class="btn btn-primary mt-3" >Dodaj film</button>
+</form>
+<div class="mt-3">
+  <a routerLink="/books" class="btn btn-secondary">Powrót do listy książek</a>
+</div>
+
+
+<!-- Display submitted data for debugging -->
+<div class="mt-3" *ngIf="submitted">
+  <h4>Submitted Data:</h4>
+  <pre>{{ bookForm.value}}</pre>
+  <pre>{{bookForm.status}}</pre>
+</div>
