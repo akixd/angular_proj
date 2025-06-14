@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {NgForOf, NgIf} from '@angular/common';
+import {JsonPipe, NgForOf, NgIf} from '@angular/common';
 import {Book} from '../book';
 import {ApiService} from '../api.service';
 import {ActivatedRoute, RouterLink} from '@angular/router';
@@ -9,7 +9,7 @@ import {ActivatedRoute, RouterLink} from '@angular/router';
   imports: [
     NgIf,
     RouterLink,
-    NgForOf
+    NgForOf,
   ],
   templateUrl: './book-view.component.html',
   styleUrl: './book-view.component.css'
@@ -17,6 +17,7 @@ import {ActivatedRoute, RouterLink} from '@angular/router';
 export class BookViewComponent implements OnInit {
   book!: Book;
   bookId!: number;
+  categoryName: string = '';
 
   constructor(private apiService: ApiService,
               private activatedRoute: ActivatedRoute) {
@@ -25,10 +26,14 @@ export class BookViewComponent implements OnInit {
   ngOnInit(): void {
     this.bookId = this.activatedRoute.snapshot.params['id'];
     console.log(this.bookId);
+
     this.apiService.getBook(this.bookId).subscribe({
       next: (data: any) => {
         console.log(data);
         this.book = data;
+        console.log('Category name:', data.category.name);
+        this.categoryName = data.category ? data.category.name : 'No category';
+        console.log(this.categoryName);
       }
     });
   }

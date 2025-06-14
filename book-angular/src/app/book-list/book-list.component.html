@@ -18,7 +18,7 @@
       <td>{{ book.id }}</td>
       <td>{{ book.title }}</td>
       <td>{{book.description}}</td>
-      <td>{{book.category}}</td>
+      <td>{{book.category.name}}</td>
       <td>{{book.actors}}</td>
       <td>
         <a [routerLink]="['/book/show', book.id]" class="btn btn-info">Zobacz</a> &nbsp;

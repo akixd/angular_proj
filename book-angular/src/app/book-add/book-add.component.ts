@@ -43,7 +43,7 @@ export class BookAddComponent {
       title: new FormControl('', [Validators.required, Validators.minLength(2)]),
       author: new FormControl('', [Validators.required, Validators.minLength(2)]),
       description: new FormControl('', [Validators.required]),
-      category: new FormControl('', [Validators.required]),
+      category: new FormControl(null, [Validators.required]),
       actors: new FormControl([], [Validators.required])
     });
   }
@@ -119,14 +119,13 @@ export class BookAddComponent {
       console.log('Payload do wysłania:', payload);
 
 
-      this.apiService.addBook(this.bookForm.value).subscribe({
+      this.apiService.addBook(payload).subscribe({
         next: (res: any) => {
           this.router.navigateByUrl('/books');
         }
       });
     } else {
       console.log('Form is invalid');
-      // Optionally, set an error message to display in the template
     }
   }
 

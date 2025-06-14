@@ -20,7 +20,15 @@
                     <textarea id="description" formControlName="description" class="form-control"></textarea>
                 </div>
 
-                <div class="text-end">
+              <div class="mb-3">
+                <label for="actors" class="form-label">Aktorzy</label>
+                <select multiple class="form-select" formControlName="actors">
+                  <option *ngFor="let actor of actors" [ngValue]="actor">{{ actor.name }} {{ actor.surname }}</option>
+                </select>
+              </div>
+
+
+              <div class="text-end">
                     <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
                     <a routerLink="/books" class="btn btn-secondary ms-2">Anuluj</a>
                 </div>
@@ -28,5 +36,5 @@
         </div>
     </div>
 
-    <a routerLink="/books" class="btn btn-outline-secondary back-button">← Powrót do listy</a>
+    <a routerLink="/books" class="btn btn-outline-secondary back-button">Powrót do listy</a>
 </div>

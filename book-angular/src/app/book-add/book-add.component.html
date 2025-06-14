@@ -21,7 +21,7 @@
     <label for="category">Kategoria</label>
     <select id="category" class="form-control" formControlName="category">
       <option value="">Wybierz kategorię</option>
-      <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+      <option *ngFor="let category of categories" [ngValue]="category.id">{{ category.name }}</option>
     </select>
   </div>
 
@@ -41,7 +41,7 @@
 
     <!-- Przycisk do dodania nowego aktora -->
     <button type="button" class="btn btn-secondary mt-2" (click)="showAddActor = true">
-      ➕ Dodaj nowego aktora
+      Dodaj nowego aktora
     </button>
   </div>
 

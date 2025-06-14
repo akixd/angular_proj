@@ -13,7 +13,7 @@ export interface Book {
   id?: number;
   title: string;
   author: string;
-  category?: Category | null;
   description: string;
+  category: Category;
   actors: Actor[];
 }

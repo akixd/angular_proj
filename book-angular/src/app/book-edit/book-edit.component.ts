@@ -17,6 +17,7 @@ export class BookEditComponent implements OnInit {
   bookId!: number;
   submitted = false;
   categories: any[] = [];
+  actors: any[] = [];
 
   constructor(
       private fb: FormBuilder,
@@ -33,7 +34,7 @@ export class BookEditComponent implements OnInit {
       author: new FormControl('', [Validators.required, Validators.minLength(2)]),
       description: new FormControl('', Validators.required),
       category: new FormControl('', Validators.required),
-      actors: new FormControl('')
+      actors: new FormControl([])
     });
 
     this.apiService.getBook(this.bookId).subscribe({
