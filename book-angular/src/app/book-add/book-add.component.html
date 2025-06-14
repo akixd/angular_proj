@@ -38,38 +38,6 @@
         {{ actor.name }} {{ actor.surname }}
       </option>
     </select>
-
-    <!-- Przycisk do dodania nowego aktora -->
-    <button type="button" class="btn btn-secondary mt-2" (click)="showAddActor = true">
-      Dodaj nowego aktora
-    </button>
-  </div>
-
-  <div *ngIf="showAddActor" class="border rounded p-3 mt-2">
-    <h5>Dodaj aktora</h5>
-
-    <div class="form-group">
-      <input
-        type="text"
-        class="form-control mb-2"
-        placeholder="Imię"
-        [(ngModel)]="newActor.name"
-        [ngModelOptions]="{standalone: true}"
-        name="newActorName"
-        required
-      >
-      <input
-        type="text"
-        class="form-control mb-2"
-        placeholder="Nazwisko"
-        [(ngModel)]="newActor.surname"
-        [ngModelOptions]="{standalone: true}"
-        name="newActorSurname"
-        required
-      >
-      <button type="button" class="btn btn-success" (click)="addNewActor()">Dodaj aktora</button>
-      <button type="button" class="btn btn-link text-danger" (click)="showAddActor = false">Anuluj</button>
-    </div>
   </div>
 
 
