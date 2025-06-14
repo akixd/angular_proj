@@ -1,0 +1,93 @@
+/*
+ view css
+*/
+
+
+.card-title strong {
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}
+
+.card-text strong {
+  margin-right: 0.3rem;
+}
+
+/*
+add css
+*/
+
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+pre {
+  background-color: #f1f1f1;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+
+/*
+list css
+ */
+
+.film-list-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#books-table {
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+#books-table th,
+#books-table td {
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+#books-table caption {
+  caption-side: top;
+  text-align: left;
+  padding-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #6c757d;
+}
+
+@media (max-width: 768px) {
+  #books-table {
+    font-size: 0.9rem;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+  }
+}
+
+.add-actor-form {
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+}
+
+.add-actor-form h5 {
+  margin-bottom: 1rem;
+}
