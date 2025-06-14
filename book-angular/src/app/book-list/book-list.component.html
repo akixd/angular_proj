@@ -2,7 +2,6 @@
 
 <table id="books-table" class="table">
   <caption>Lista dostępnych filmów</caption>
-  <a routerLink="/book/add" class="btn btn-primary mb-3">Dodaj nowy film</a>
   <thead>
     <tr>
       <th>ID</th>
@@ -19,7 +18,11 @@
       <td>{{ book.title }}</td>
       <td>{{book.description}}</td>
       <td>{{book.category.name}}</td>
-      <td>{{book.actors}}</td>
+      <td>
+        <span *ngFor="let actor of book.actors; let last = last">
+          {{actor.name}} {{actor.surname}}{{!last ? ', ' : ''}}
+        </span>
+      </td>
       <td>
         <a [routerLink]="['/book/show', book.id]" class="btn btn-info">Zobacz</a> &nbsp;
         <a [routerLink]="['/books/edit', book.id]" class="btn btn-warning">Edytuj</a> &nbsp;
@@ -27,3 +30,5 @@
     </tr>
   </tbody>
 </table>
+
+<a routerLink="/book/add" class="btn btn-primary mb-3">Dodaj nowy film</a>

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NgForOf} from '@angular/common';
+import {NgForOf, NgIf} from '@angular/common';
 import {ApiService} from '../api.service';
 import {RouterLink} from '@angular/router';
 
@@ -8,7 +8,7 @@ import {RouterLink} from '@angular/router';
   standalone: true,
   imports: [
     NgForOf,
-    RouterLink
+    RouterLink,
   ],
   templateUrl: './book-list.component.html',
   styleUrl: './book-list.component.css'
@@ -22,7 +22,7 @@ export class BookListComponent {
   ngOnInit() {
     this.apiService.getBooks().subscribe((data: any[]) => {
       this.books = data;
-      console.log("Books loaded:", this.books);
+      console.log("Films loaded:", this.books);
     });
   }
 

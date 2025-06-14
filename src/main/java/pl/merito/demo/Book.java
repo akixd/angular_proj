@@ -62,7 +62,7 @@ public class Book {
         this.description = description;
     }
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "book_actors",
             joinColumns = @JoinColumn(name = "book_id"),

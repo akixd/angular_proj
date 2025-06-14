@@ -54,6 +54,16 @@ export class BookEditComponent implements OnInit {
         console.error('Błąd ładowania kategorii:', err);
       }
     });
+
+    this.apiService.getActors().subscribe({
+      next: (data) => {
+        this.actors = data;
+      },
+      error: (err) => {
+        console.error('Błąd ładowania aktorów:', err);
+      }
+    });
+
   }
 
   onSubmit() {

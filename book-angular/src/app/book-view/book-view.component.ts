@@ -31,9 +31,6 @@ export class BookViewComponent implements OnInit {
       next: (data: any) => {
         console.log(data);
         this.book = data;
-        console.log('Category name:', data.category.name);
-        this.categoryName = data.category ? data.category.name : 'No category';
-        console.log(this.categoryName);
       }
     });
   }
